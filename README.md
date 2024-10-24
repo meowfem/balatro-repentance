@@ -15,5 +15,5 @@ Damage Multiplier -> xMult <br/>
 Luck -> Probabilities (Like Oops! All 6s)
 Range -> Hand Size <br/>
 Bombs -> Temporary Discards <br/>
-Coins -> $ <br/>
+Coins -> Money <br/>
 Keys -> Temporary Hands
