@@ -12,7 +12,7 @@ Damage -> Mult <br/>
 Speed -> Blind Skip Rewards <br/>
 Shot Count -> Hands <br/>
 Damage Multiplier -> xMult <br/>
-Luck -> Probabilities (Like Oops! All 6s)
+Luck -> Probabilities (Like Oops! All 6s) <br/>
 Range -> Hand Size <br/>
 Bombs -> Temporary Discards <br/>
 Coins -> Money <br/>
