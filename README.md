@@ -8,8 +8,9 @@ This mod in no way attempts to be balanced, I just decided to follow along with 
 
 Tears -> Chips <br/>
 Damage -> Mult <br/>
-Shot Amount -> xChips <br/>
+Shot Count -> Hands <br/>
 Damage Multiplier -> xMult <br/>
-Range -> Hands <br/>
-Bombs -> Discards <br/>
+Range -> Hand Size <br/>
+Bombs -> Temporary Discards <br/>
 Coins -> $ <br/>
+Keys -> Temporary Hands
