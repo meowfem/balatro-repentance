@@ -6,8 +6,10 @@ This mod in no way attempts to be balanced, I just decided to follow along with 
 
 # Stats Conversions
 
+Health -> Blind Requirement <br/>
 Tears -> Chips <br/>
 Damage -> Mult <br/>
+Speed -> Blind Skip Rewards <br/>
 Shot Count -> Hands <br/>
 Damage Multiplier -> xMult <br/>
 Range -> Hand Size <br/>
