@@ -6,10 +6,10 @@ This mod in no way attempts to be balanced, I just decided to follow along with 
 
 # Stats Conversions
 
-Tears -> Chips
-Damage -> Mult
-Shot Amount -> xChips
-Damage Multiplier -> xMult
-Range -> Hands
-Bombs -> Discards
-Coins -> $
+Tears -> Chips <br\>
+Damage -> Mult <br\>
+Shot Amount -> xChips <br\>
+Damage Multiplier -> xMult <br\>
+Range -> Hands <br\>
+Bombs -> Discards <br\>
+Coins -> $ <br\>
