@@ -6,10 +6,14 @@ This mod in no way attempts to be balanced, I just decided to follow along with 
 
 # Stats Conversions
 
+Health -> Blind Requirement <br/>
 Tears -> Chips <br/>
 Damage -> Mult <br/>
-Shot Amount -> xChips <br/>
+Speed -> Blind Skip Rewards <br/>
+Shot Count -> Hands <br/>
 Damage Multiplier -> xMult <br/>
-Range -> Hands <br/>
-Bombs -> Discards <br/>
-Coins -> $ <br/>
+Luck -> Probabilities (Like Oops! All 6s) <br/>
+Range -> Hand Size <br/>
+Bombs -> Temporary Discards <br/>
+Coins -> Money <br/>
+Keys -> Temporary Hands
