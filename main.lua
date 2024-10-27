@@ -17,6 +17,20 @@ SMODS.Atlas ({
 }):register()
 
 SMODS.Atlas ({
+  key = "Cards2",
+  path = "cards2.png",
+  px = 71,
+  py = 95
+}):register()
+
+SMODS.Atlas ({
+  key = "Cards3",
+  path = "cards3.png",
+  px = 71,
+  py = 95
+}):register()
+
+SMODS.Atlas ({
 key = "modicon",
 path = "icon.png",
 px = 64,
@@ -471,7 +485,7 @@ SMODS.Joker {
   unlocked = true,
   discovered = true,
   atlas = 'Cards',
-  pos = {x = 1, y = 3},
+  pos = {x = 3, y = 3},
   cost = 4,
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -498,7 +512,7 @@ SMODS.Joker {
   unlocked = true,
   discovered = true,
   atlas = 'Cards',
-  pos = {x = 2, y = 3},
+  pos = {x = 4, y = 3},
   cost = 4,
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -524,14 +538,207 @@ SMODS.Joker {
   rarity = 1,
   unlocked = true,
   discovered = true,
-  atlas = 'Cards',
-  pos = {x = 3, y = 3},
+  atlas = 'Cards2',
+  pos = {x = 0, y = 0},
   cost = 4,
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.setting_blind then
       G.GAME.blind.chips = G.GAME.blind.chips * card.ability.extra.blindreq
       G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+    end
+  end
+}
+
+SMODS.Joker {
+  key = 'breakfast',
+  loc_txt = {
+    name = 'Breakfast',
+    text = {
+      "{X:attention,C:white}#1#x{} Blind Requirement"
+    }
+  },
+  config = {extra = {blindreq = 0.95}},
+  loc_vars = function(self, info_queue, card)
+    return {vars = {card.ability.extra.blindreq}}
+  end,
+  rarity = 1,
+  unlocked = true,
+  discovered = true,
+  atlas = 'Cards2',
+  pos = {x = 1, y = 0},
+  cost = 4,
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+    if context.setting_blind then
+      G.GAME.blind.chips = G.GAME.blind.chips * card.ability.extra.blindreq
+      G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+    end
+  end
+}
+
+SMODS.Joker {
+  key = 'rottenmeat',
+  loc_txt = {
+    name = 'Rotten Meat',
+    text = {
+      "{X:attention,C:white}#1#x{} Blind Requirement"
+    }
+  },
+  config = {extra = {blindreq = 0.95}},
+  loc_vars = function(self, info_queue, card)
+    return {vars = {card.ability.extra.blindreq}}
+  end,
+  rarity = 1,
+  unlocked = true,
+  discovered = true,
+  atlas = 'Cards2',
+  pos = {x = 2, y = 0},
+  cost = 4,
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+    if context.setting_blind then
+      G.GAME.blind.chips = G.GAME.blind.chips * card.ability.extra.blindreq
+      G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+    end
+  end
+}
+
+SMODS.Joker {
+  key = 'momsunderwear',
+  loc_txt = {
+    name = "Mom's Underwear",
+    text = {
+      "{C:attention}+#1#{} Hand Size"
+    }
+  },
+  config = { extra = {h_size = 3}},
+  loc_vars = function(self, info_queue, card)
+    return {vars = {card.ability.extra.h_size}}
+  end,
+  rarity = 1,
+  unlocked = true,
+  discovered = true,
+  atlas = 'Cards2',
+  pos = {x = 3, y = 0},
+  cost = 6,
+  blueprint_compat = false,
+  add_to_deck = function(self, card, from_debuff)
+    G.hand:change_size(card.ability.extra.h_size)
+  end,
+  remove_from_deck = function(self, card, from_debuff)
+    G.hand:change_size(-card.ability.extra.h_size)
+  end,
+}
+
+SMODS.Joker {
+  key = 'momsheels',
+  loc_txt = {
+    name = "Mom's Heels",
+    text = {
+      "{C:attention}+#1#{} Hand Size"
+    }
+  },
+  config = { extra = {h_size = 3}},
+  loc_vars = function(self, info_queue, card)
+    return {vars = {card.ability.extra.h_size}}
+  end,
+  rarity = 1,
+  unlocked = true,
+  discovered = true,
+  atlas = 'Cards2',
+  pos = {x = 4, y = 0},
+  cost = 6,
+  blueprint_compat = false,
+  add_to_deck = function(self, card, from_debuff)
+    G.hand:change_size(card.ability.extra.h_size)
+  end,
+  remove_from_deck = function(self, card, from_debuff)
+    G.hand:change_size(-card.ability.extra.h_size)
+  end,
+}
+
+SMODS.Joker {
+  key = 'momslipstick',
+  loc_txt = {
+    name = "Mom's Lipstick",
+    text = {
+      "{C:attention}+#1#{} Hand Size"
+    }
+  },
+  config = { extra = {h_size = 3}},
+  loc_vars = function(self, info_queue, card)
+    return {vars = {card.ability.extra.h_size}}
+  end,
+  rarity = 1,
+  unlocked = true,
+  discovered = true,
+  atlas = 'Cards2',
+  pos = {x = 4, y = 0},
+  cost = 6,
+  blueprint_compat = false,
+  add_to_deck = function(self, card, from_debuff)
+    G.hand:change_size(card.ability.extra.h_size)
+  end,
+  remove_from_deck = function(self, card, from_debuff)
+    G.hand:change_size(-card.ability.extra.h_size)
+  end,
+}
+
+SMODS.Joker {
+  key = 'wirecoathanger',
+  loc_txt = {
+    name = 'Wire Coat Hanger',
+    text = {
+      "{C:chips}+#1#{} Chips"
+    }
+  },
+  config = { extra = { chips = 70}},
+  loc_vars = function(self, info_queue, card)
+    return {vars = {card.ability.extra.chips}}
+  end,
+  rarity = 3,
+  unlocked = true,
+  discovered = true,
+  atlas = 'Cards2',
+  pos = {x = 0, y = 1},
+  cost = 3,
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+    if context.joker_main then
+      return {
+        chip_mod = card.ability.extra.chips,
+        message = localize {type = 'variable', key = 'a_chips', vars = {card.ability.extra.chips}}
+      }
+    end
+  end
+}
+
+SMODS.Joker {
+  key = 'mrboom',
+  loc_txt = {
+    name = 'Mr. Boom',
+    text = {
+      "{C:chips}+#1#{} Chips if {C:attention}last{} hand of blind"
+    }
+  },
+  config = {extra = {chips = 333}},
+  loc_vars = function(self, info_queue, card)
+    return {vars = {card.ability.extra.chips}}
+  end,
+  rarity = 1,
+  unlocked = true,
+  discovered = true,
+  atlas = 'Cards2',
+  pos = {x = 1, y = 1},
+  cost = 6,
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+    if context.joker_main and G.GAME.current_round.hands_played == G.GAME.round_resets.hands - 1 then
+      return {
+        chip_mod = card.ability.extra.chips,
+        message = (localize {type = 'variable', key = 'a_chips', vars = {card.ability.extra.chips}})
+      }
     end
   end
 }
