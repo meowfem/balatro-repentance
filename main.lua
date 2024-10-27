@@ -418,7 +418,115 @@ SMODS.Joker {
   discovered = true,
   atlas = 'Cards',
   pos = {x = 4, y = 2},
+  cost = 5,
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+    if context.setting_blind then
+      G.GAME.blind.chips = G.GAME.blind.chips * card.ability.extra.blindreq
+      G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+    end
+  end
+}
+
+SMODS.Joker {
+  key = 'rawliver',
+  loc_txt = {
+    name = 'Raw Liver',
+    text = {
+      "{X:attention,C:white}#1#x{} Blind Requirement"
+    }
+  },
+  config = {extra = {blindreq = 0.85}},
+  loc_vars = function(self, info_queue, card)
+    return {vars = {card.ability.extra.blindreq}}
+  end,
+  rarity = 2,
+  unlocked = true,
+  discovered = true,
+  atlas = 'Cards',
+  pos = {x = 0, y = 3},
   cost = 6,
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+    if context.setting_blind then
+      G.GAME.blind.chips = G.GAME.blind.chips * card.ability.extra.blindreq
+      G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+    end
+  end
+}
+
+SMODS.Joker {
+  key = 'lunch',
+  loc_txt = {
+    name = 'Lunch',
+    text = {
+      "{X:attention,C:white}#1#x{} Blind Requirement"
+    }
+  },
+  config = {extra = {blindreq = 0.95}},
+  loc_vars = function(self, info_queue, card)
+    return {vars = {card.ability.extra.blindreq}}
+  end,
+  rarity = 1,
+  unlocked = true,
+  discovered = true,
+  atlas = 'Cards',
+  pos = {x = 1, y = 3},
+  cost = 4,
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+    if context.setting_blind then
+      G.GAME.blind.chips = G.GAME.blind.chips * card.ability.extra.blindreq
+      G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+    end
+  end
+}
+
+SMODS.Joker {
+  key = 'dinner',
+  loc_txt = {
+    name = 'Dinner',
+    text = {
+      "{X:attention,C:white}#1#x{} Blind Requirement"
+    }
+  },
+  config = {extra = {blindreq = 0.95}},
+  loc_vars = function(self, info_queue, card)
+    return {vars = {card.ability.extra.blindreq}}
+  end,
+  rarity = 1,
+  unlocked = true,
+  discovered = true,
+  atlas = 'Cards',
+  pos = {x = 2, y = 3},
+  cost = 4,
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+    if context.setting_blind then
+      G.GAME.blind.chips = G.GAME.blind.chips * card.ability.extra.blindreq
+      G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+    end
+  end
+}
+
+SMODS.Joker {
+  key = 'dessert',
+  loc_txt = {
+    name = 'Dessert',
+    text = {
+      "{X:attention,C:white}#1#x{} Blind Requirement"
+    }
+  },
+  config = {extra = {blindreq = 0.95}},
+  loc_vars = function(self, info_queue, card)
+    return {vars = {card.ability.extra.blindreq}}
+  end,
+  rarity = 1,
+  unlocked = true,
+  discovered = true,
+  atlas = 'Cards',
+  pos = {x = 3, y = 3},
+  cost = 4,
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.setting_blind then
