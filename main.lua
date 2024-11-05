@@ -9,6 +9,7 @@
 ----------------------------------------------
 ------------MOD CODE -------------------------
 
+
 SMODS.Atlas ({
   key = "Cards",
   path = "cards.png",
@@ -33,15 +34,34 @@ SMODS.Atlas ({
 SMODS.Atlas ({
 key = "modicon",
 path = "icon.png",
-px = 64,
-py = 64
+px = 41,
+py = 41
 }):register()
+
+
+local quality1 = function(self, card, badges)
+	badges[#badges + 1] = create_badge('Quality 1', HEX('91fe51'), G.C.WHITE, 1)
+end
+
+local quality2 = function(self, card, badges)
+	badges[#badges + 1] = create_badge('Quality 2', HEX('65d4fe'), G.C.WHITE, 1.5)
+end
+
+local quality3 = function(self, card, badges)
+	badges[#badges + 1] = create_badge('Quality 3', HEX('fe54ed'), G.C.WHITE, 2)
+end
+
+local quality4 = function(self, card, badges)
+	badges[#badges + 1] = create_badge('Quality 4', HEX('fed000'), G.C.WHITE, 2.5)
+end
+
 
 SMODS.Joker {
   key = 'thesadonion',
   loc_txt = {
     name = 'The Sad Onion',
     text = {
+      "{C:inactive,s:1.5}Tears up{}",
       "{C:chips}+#1#{} Chips"
     }
   },
@@ -50,6 +70,7 @@ SMODS.Joker {
     return {vars = {card.ability.extra.chips}}
   end,
   rarity = 3,
+  set_card_type_badge = quality3,
   unlocked = true,
   discovered = true,
   atlas = 'Cards',
@@ -71,6 +92,7 @@ SMODS.Joker {
   loc_txt = {
     name = 'The Inner Eye',
     text = {
+      "{C:inactive,s:1.5}Triple shot{}",
       "{C:blue}+#1#{} Hands"
     }
   },
@@ -79,6 +101,7 @@ SMODS.Joker {
     return {vars = {card.ability.extra.hands}}
   end,
   rarity = 2,
+  set_card_type_badge = quality2,
   unlocked = true,
   discovered = true,
   atlas = 'Cards',
@@ -100,10 +123,12 @@ SMODS.Joker {
   loc_txt = {
     name = 'Spoon Bender',
     text = {
+      "{C:inactive,s:1.5}Homing shots{}",
       "Balances {C:chips}Chips{} and {C:mult}Mult{}"
     }
   },
   rarity = 3,
+  set_card_type_badge = quality3,
   unlocked = true,
   discovered = true,
   atlas = 'Cards',
@@ -139,6 +164,7 @@ SMODS.Joker {
   loc_txt = {
     name = "Cricket's Head",
     text = {
+      "{C:inactive,s:1.5}DMG up{}",
       "{C:mult}+#1#{} Mult",
       "{X:mult,C:white}#2#x{} Mult"
     }
@@ -148,6 +174,7 @@ SMODS.Joker {
     return {vars = {card.ability.extra.mult, card.ability.extra.xmult}}
   end,
   rarity = 4,
+  set_card_type_badge = quality4,
   unlocked = true,
   discovered = true,
   atlas = 'Cards',
@@ -170,6 +197,7 @@ SMODS.Joker {
   loc_txt = {
     name = 'My Reflection',
     text = {
+      "{C:inactive,s:1.5}Boomerang tears{}",
       "{C:attention}+#1#{} Hand Size"
     }
   },
@@ -178,6 +206,7 @@ SMODS.Joker {
     return {vars = {card.ability.extra.h_size}}
   end,
   rarity = 2,
+  set_card_type_badge = quality2,
   unlocked = true,
   discovered = true,
   atlas = 'Cards',
@@ -197,6 +226,7 @@ SMODS.Joker {
   loc_txt = {
     name = 'Number One',
     text = {
+      "{C:inactive,s:1.5}Tears up{}",
       "{C:chips}+#1#{} Chips",
       "{C:attention}-#2#{} Hand Size"
     }
@@ -206,6 +236,7 @@ SMODS.Joker {
     return {vars = {card.ability.extra.chips, card.ability.extra.h_size}}
   end,
   rarity = 2,
+  set_card_type_badge = quality2,
   unlocked = true,
   discovered = true,
   atlas = 'Cards',
@@ -233,6 +264,7 @@ SMODS.Joker {
   loc_txt = {
     name = 'Blood of The Martyr',
     text = {
+      "{C:inactive,s:1.5}DMG up{}",
       "{C:mult}+#1#{} Mult"
     }
   },
@@ -241,6 +273,7 @@ SMODS.Joker {
     return {vars = {card.ability.extra.mult}}
   end,
   rarity = 3,
+  set_card_type_badge = quality3,
   unlocked = true,
   discovered = true,
   atlas = 'Cards',
@@ -262,6 +295,7 @@ SMODS.Joker {
   loc_txt = {
     name = '1up!',
     text = {
+      "{C:inactive,s:1.5}Extra life{}",
       "Prevents death {C:attention}once{}",
       "{C:red}Self destructs{}"
     }
@@ -271,6 +305,7 @@ SMODS.Joker {
     return {vars = {card.ability.extra.hands}}
   end,
   rarity = 2,
+  set_card_type_badge = quality2,
   unlocked = true,
   discovered = true,
   atlas = 'Cards',
@@ -287,9 +322,9 @@ SMODS.Joker {
         end
       }))
       return {
-        message = localize('k_saved_ex'),
+        message = ('Revive!'),
         saved = true,
-        colour = G.C.RED,
+        colour = G.C.ATTENTION,
         card:start_dissolve()
       }
     end
@@ -301,6 +336,7 @@ SMODS.Joker {
   loc_txt = {
     name = 'Magic Mushroom',
     text = {
+      "{C:inactive,s:1.5}All stats up!{}",
       "{X:attention,C:white}#1#x{} Blind Requirement",
       "{C:mult}+#2#{} Mult",
       "{X:mult,C:white}#3#x{} Mult",
@@ -312,6 +348,7 @@ SMODS.Joker {
     return {vars = {card.ability.extra.blindreq, card.ability.extra.mult, card.ability.extra.xmult, card.ability.extra.h_size,}}
   end,
   rarity = 4,
+  set_card_type_badge = quality4,
   unlocked = true,
   discovered = true,
   atlas = 'Cards',
@@ -344,6 +381,7 @@ SMODS.Joker {
   loc_txt = {
     name = 'The Virus',
     text = {
+      "{C:inactive,s:1.5}Poison touch{}",
       "{C:mult}+#1#{} Mult if {C:attention}first{} hand of blind"
     }
   },
@@ -352,6 +390,7 @@ SMODS.Joker {
     return {vars = {card.ability.extra.mult}}
   end,
   rarity = 2,
+  set_card_type_badge = quality2,
   unlocked = true,
   discovered = true,
   atlas = 'Cards',
@@ -373,6 +412,7 @@ SMODS.Joker {
   loc_txt = {
     name = 'Roid Rage',
     text = {
+      "{C:inactive,s:1.5}Speed and range up{}",
       "Gains {C:attention}+#1#{} Hand Size per {C:attention}Blind Skipped{}",
       "{C:inactive}(Currently{} {C:attention}+#2#{} {C:inactive}Hand Size){}"
     }
@@ -382,6 +422,7 @@ SMODS.Joker {
     return {vars = {card.ability.extra.increase, card.ability.extra.increase * G.GAME.skips}}
   end,
   rarity = 2,
+  set_card_type_badge = quality2,
   unlocked = true,
   discovered = true,
   atlas = 'Cards',
@@ -420,6 +461,7 @@ SMODS.Joker {
   loc_txt = {
     name = '<3',
     text = {
+      "{C:inactive,s:1.5}HP up{}",
       "{X:attention,C:white}#1#x{} Blind Requirement"
     }
   },
@@ -428,6 +470,7 @@ SMODS.Joker {
     return {vars = {card.ability.extra.blindreq}}
   end,
   rarity = 2,
+  set_card_type_badge = quality2,
   unlocked = true,
   discovered = true,
   atlas = 'Cards',
@@ -447,6 +490,7 @@ SMODS.Joker {
   loc_txt = {
     name = 'Raw Liver',
     text = {
+      "{C:inactive,s:1.5}HP up{}",
       "{X:attention,C:white}#1#x{} Blind Requirement"
     }
   },
@@ -455,6 +499,7 @@ SMODS.Joker {
     return {vars = {card.ability.extra.blindreq}}
   end,
   rarity = 2,
+  set_card_type_badge = quality2,
   unlocked = true,
   discovered = true,
   atlas = 'Cards',
@@ -474,6 +519,7 @@ SMODS.Joker {
   loc_txt = {
     name = 'Lunch',
     text = {
+      "{C:inactive,s:1.5}HP up{}",
       "{X:attention,C:white}#1#x{} Blind Requirement"
     }
   },
@@ -482,6 +528,7 @@ SMODS.Joker {
     return {vars = {card.ability.extra.blindreq}}
   end,
   rarity = 1,
+  set_card_type_badge = quality1,
   unlocked = true,
   discovered = true,
   atlas = 'Cards',
@@ -501,6 +548,7 @@ SMODS.Joker {
   loc_txt = {
     name = 'Dinner',
     text = {
+      "{C:inactive,s:1.5}HP up{}",
       "{X:attention,C:white}#1#x{} Blind Requirement"
     }
   },
@@ -509,6 +557,7 @@ SMODS.Joker {
     return {vars = {card.ability.extra.blindreq}}
   end,
   rarity = 1,
+  set_card_type_badge = quality1,
   unlocked = true,
   discovered = true,
   atlas = 'Cards',
@@ -528,6 +577,7 @@ SMODS.Joker {
   loc_txt = {
     name = 'Dessert',
     text = {
+      "{C:inactive,s:1.5}HP up{}",
       "{X:attention,C:white}#1#x{} Blind Requirement"
     }
   },
@@ -536,6 +586,7 @@ SMODS.Joker {
     return {vars = {card.ability.extra.blindreq}}
   end,
   rarity = 1,
+  set_card_type_badge = quality1,
   unlocked = true,
   discovered = true,
   atlas = 'Cards2',
@@ -555,6 +606,7 @@ SMODS.Joker {
   loc_txt = {
     name = 'Breakfast',
     text = {
+      "{C:inactive,s:1.5}HP up{}",
       "{X:attention,C:white}#1#x{} Blind Requirement"
     }
   },
@@ -563,6 +615,7 @@ SMODS.Joker {
     return {vars = {card.ability.extra.blindreq}}
   end,
   rarity = 1,
+  set_card_type_badge = quality1,
   unlocked = true,
   discovered = true,
   atlas = 'Cards2',
@@ -582,6 +635,7 @@ SMODS.Joker {
   loc_txt = {
     name = 'Rotten Meat',
     text = {
+      "{C:inactive,s:1.5}HP up{}",
       "{X:attention,C:white}#1#x{} Blind Requirement"
     }
   },
@@ -590,6 +644,7 @@ SMODS.Joker {
     return {vars = {card.ability.extra.blindreq}}
   end,
   rarity = 1,
+  set_card_type_badge = quality1,
   unlocked = true,
   discovered = true,
   atlas = 'Cards2',
@@ -609,6 +664,7 @@ SMODS.Joker {
   loc_txt = {
     name = "Mom's Underwear",
     text = {
+      "{C:inactive,s:1.5}Range up{}",
       "{C:attention}+#1#{} Hand Size"
     }
   },
@@ -617,6 +673,7 @@ SMODS.Joker {
     return {vars = {card.ability.extra.h_size}}
   end,
   rarity = 1,
+  set_card_type_badge = quality1,
   unlocked = true,
   discovered = true,
   atlas = 'Cards2',
@@ -636,6 +693,7 @@ SMODS.Joker {
   loc_txt = {
     name = "Mom's Heels",
     text = {
+      "{C:inactive,s:1.5}Range up{}",
       "{C:attention}+#1#{} Hand Size"
     }
   },
@@ -644,6 +702,7 @@ SMODS.Joker {
     return {vars = {card.ability.extra.h_size}}
   end,
   rarity = 1,
+  set_card_type_badge = quality1,
   unlocked = true,
   discovered = true,
   atlas = 'Cards2',
@@ -663,6 +722,7 @@ SMODS.Joker {
   loc_txt = {
     name = "Mom's Lipstick",
     text = {
+      "{C:inactive,s:1.5}Range up{}",
       "{C:attention}+#1#{} Hand Size"
     }
   },
@@ -671,6 +731,7 @@ SMODS.Joker {
     return {vars = {card.ability.extra.h_size}}
   end,
   rarity = 1,
+  set_card_type_badge = quality1,
   unlocked = true,
   discovered = true,
   atlas = 'Cards2',
@@ -690,6 +751,7 @@ SMODS.Joker {
   loc_txt = {
     name = 'Wire Coat Hanger',
     text = {
+      "{C:inactive,s:1.5}Tears up{}",
       "{C:chips}+#1#{} Chips"
     }
   },
@@ -698,6 +760,7 @@ SMODS.Joker {
     return {vars = {card.ability.extra.chips}}
   end,
   rarity = 3,
+  set_card_type_badge = quality3,
   unlocked = true,
   discovered = true,
   atlas = 'Cards2',
@@ -719,6 +782,7 @@ SMODS.Joker {
   loc_txt = {
     name = 'Mr. Boom',
     text = {
+      "{C:inactive,s:1.5}Reusable bomb buddy{}",
       "{C:chips}+#1#{} Chips if {C:attention}last{} hand of blind"
     }
   },
@@ -727,6 +791,7 @@ SMODS.Joker {
     return {vars = {card.ability.extra.chips}}
   end,
   rarity = 1,
+  set_card_type_badge = quality1,
   unlocked = true,
   discovered = true,
   atlas = 'Cards2',
