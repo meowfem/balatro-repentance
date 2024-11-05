@@ -807,3 +807,73 @@ SMODS.Joker {
     end
   end
 }
+
+SMODS.Joker {
+  key = 'momsbra',
+  loc_txt = {
+    name = "Mom's Bra",
+    text = {
+      "{C:inactive,s:1.5}Mass fear{}",
+      "{C:attention}Disables{} Boss Blind",
+      "abilities for {C:attention}#1#{} Hands"
+    }
+  },
+  config = {extra = {hands = 2}},
+  loc_vars = function(self, info_queue, card)
+    return {vars = {card.ability.extra.hands}}
+  end,
+  rarity = 1,
+  set_card_type_badge = quality1,
+  unlocked = true,
+  discovered = true,
+  atlas = 'Cards2',
+  pos = {x = 2, y = 1},
+  cost = 5,
+  blueprint_compat = false,
+  calculate = function(self, card, context)
+    if G.GAME.blind and G.GAME.current_round.hands_played == 0 and not G.GAME.blind.disabled and G.GAME.blind:get_type() == 'Boss'and not context.blueprint then
+      message = localize('ph_boss_disabled')
+      print("DISABLE")
+      G.GAME.blind:disable()
+    end
+    if context.joker_main and G.GAME.round_resets.hands <= G.GAME.current_round.hands_played + 3 then
+      print("ENABLE")
+      G.GAME.blind:set_blind(G.GAME.blind.config.blind)
+    end
+  end
+}
+
+SMODS.Joker {
+  key = 'momspad',
+  loc_txt = {
+    name = "Mom's Pad",
+    text = {
+      "{C:inactive,s:1.5}Gross...{}",
+      "{C:attention}Disables{} Boss Blind",
+      "abilities for {C:attention}#1#{} Hands"
+    }
+  },
+  config = {extra = {hands = 2}},
+  loc_vars = function(self, info_queue, card)
+    return {vars = {card.ability.extra.hands}}
+  end,
+  rarity = 1,
+  set_card_type_badge = quality1,
+  unlocked = true,
+  discovered = true,
+  atlas = 'Cards2',
+  pos = {x = 3, y = 1},
+  cost = 5,
+  blueprint_compat = false,
+  calculate = function(self, card, context)
+    if G.GAME.blind and G.GAME.current_round.hands_played == 0 and not G.GAME.blind.disabled and G.GAME.blind:get_type() == 'Boss'and not context.blueprint then
+      message = localize('ph_boss_disabled')
+      print("DISABLE")
+      G.GAME.blind:disable()
+    end
+    if context.joker_main and G.GAME.round_resets.hands <= G.GAME.current_round.hands_played + 3 then
+      print("ENABLE")
+      G.GAME.blind:set_blind(G.GAME.blind.config.blind)
+    end
+  end
+}
