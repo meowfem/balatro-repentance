@@ -3,7 +3,7 @@ version = "1.0.0"
 dump_lua = true
 priority = 0
 
-# being saved just says saved
+# Being saved by a joker says "Revive!" instead of "Saved by Mr Bones".
 [[patches]]
 [patches.pattern]
 target = "functions/common_events.lua"
